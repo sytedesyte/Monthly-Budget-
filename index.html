@@ -1,1 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Monthly Budget</title>
 
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app">
+
+        <header class="header">
+            <h1>💰 Personal Monthly Budget</h1>
+            <p>Track expenses, savings and goals</p>
+        </header>
+
+        <section class="card savings-card">
+            <h2>Monthly Savings</h2>
+
+            <div class="summary-row">
+                <span>Income</span>
+                <span id="incomeDisplay">0 MVR</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Personal Expenses</span>
+                <span id="expenseDisplay">0 MVR</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Housing Leftover</span>
+                <span id="housingLeftDisplay">6000 MVR</span>
+            </div>
+
+            <hr>
+
+            <div class="total-savings">
+                <span>Total Savings</span>
+                <span id="totalSavings">0 MVR</span>
+            </div>
+        </section>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-page="dashboard">
+                Dashboard
+            </button>
+
+            <button class="tab-btn" data-page="quick">
+                Quick Expenses
+            </button>
+
+            <button class="tab-btn" data-page="goals">
+                Goals
+            </button>
+
+            <button class="tab-btn" data-page="history">
+                History
+            </button>
+        </nav>
+
+        <!-- DASHBOARD -->
+
+        <section id="dashboard" class="page active-page">
+
+            <div class="card">
+                <h2>Income</h2>
+
+                <div id="incomeContainer"></div>
+
+                <button id="addIncomeBtn">
+                    + Add Income Source
+                </button>
+
+                <h3>
+                    Total Income:
+                    <span id="incomeTotal">0</span> MVR
+                </h3>
+            </div>
+
+            <div class="card">
+                <h2>Housing Bills</h2>
+
+                <p>
+                    Housing Budget:
+                    <strong>6000 MVR</strong>
+                </p>
+
+                <label>Water Bill</label>
+                <input type="number" id="waterBill">
+
+                <label>Electricity Bill</label>
+                <input type="number" id="electricityBill">
+
+                <div class="results">
+                    <p>Total Bills:
+                        <span id="housingTotal">0</span>
+                    </p>
+
+                    <p>Budget Leftover:
+                        <span id="housingLeftover">6000</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Personal Bills</h2>
+
+                <div id="categoriesContainer"></div>
+
+                <button id="addCategoryBtn">
+                    + Add Custom Category
+                </button>
+
+                <h3>
+                    Total Personal Expenses:
+                    <span id="personalTotal">0</span> MVR
+                </h3>
+            </div>
+
+        </section>
+
+        <!-- QUICK EXPENSES -->
+
+        <section id="quick" class="page">
+
+            <div class="card">
+
+                <h2>☕ Coffee Tracker</h2>
+
+                <input
+                    type="number"
+                    step="0.01"
+                    id="coffeeInput"
+                    placeholder="Enter amount">
+
+                <button id="addCoffeeBtn">
+                    Add Coffee Purchase
+                </button>
+
+                <p>Budget: 1000 MVR</p>
+
+                <p>
+                    Spent:
+                    <span id="coffeeSpent">0</span>
+                </p>
+
+                <p>
+                    Remaining:
+                    <span id="coffeeRemaining">1000</span>
+                </p>
+
+                <div id="coffeeHistory"></div>
+
+            </div>
+
+            <div class="card">
+
+                <h2>🚬 Cigarette Tracker</h2>
+
+                <input
+                    type="number"
+                    step="0.01"
+                    id="cigaretteInput"
+                    placeholder="Enter amount">
+
+                <button id="addCigaretteBtn">
+                    Add Cigarette Purchase
+                </button>
+
+                <p>Budget: 1500 MVR</p>
+
+                <p>
+                    Spent:
+                    <span id="cigaretteSpent">0</span>
+                </p>
+
+                <p>
+                    Remaining:
+                    <span id="cigaretteRemaining">1500</span>
+                </p>
+
+                <div id="cigaretteHistory"></div>
+
+            </div>
+
+        </section>
+
+        <!-- GOALS -->
+
+        <section id="goals" class="page">
+
+            <div class="card">
+
+                <h2>🎯 Savings Goal</h2>
+
+                <input
+                    type="text"
+                    id="goalName"
+                    placeholder="Goal Name">
+
+                <input
+                    type="number"
+                    id="goalTarget"
+                    placeholder="Target Amount">
+
+                <div class="goal-progress">
+                    <div id="goalBar"></div>
+                </div>
+
+                <p id="goalText">
+                    No Goal Yet
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- HISTORY -->
+
+        <section id="history" class="page">
+
+            <div class="card">
+
+                <h2>📅 Monthly History</h2>
+
+                <button id="saveMonthBtn">
+                    Save Current Month
+                </button>
+
+                <div id="historyContainer"></div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
